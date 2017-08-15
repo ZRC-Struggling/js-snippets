@@ -1,0 +1,14 @@
+#### 标题栏文字滚动
+function scrollTitle(options){
+	var dir = options && options.dir || "left",
+		interval = options && options.interval || 200
+	var dt = document.title;
+	var len = dt.length;
+	if(/^left$/i.test(dir)){
+		dt = dt.substring(1, len) + dt.substring(0, 1);
+	}else if(/^right$/i.test(dir)){
+		dt = dt.substring(len - 1, len) + dt.substring(0, len - 1);	
+	}
+	document.title = dt;
+	setTimeout(function(){scrollTitle(options);}, interval);
+}
