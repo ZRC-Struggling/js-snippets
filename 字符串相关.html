@@ -9,10 +9,24 @@ function repeat(str, n){
 }
 ```
 
+### 判断字符串是否包含某些字符
+```javascript
+function includes(str, char){
+	return str.indexOf(char) !== -1;
+}
+```
+
 ### 判断某些字符是否在字符串的首部
 ```javascript 
 function startsWith(str, char){
 	return str.indexOf(char) === 0;
-};
+}
 ```
 		
+### 判断某些字符是否在字符串的尾部
+```javascript
+function endsWith(str, char){
+	return !!str.match(new RegExp(char + "$"));
+}
+```
+
