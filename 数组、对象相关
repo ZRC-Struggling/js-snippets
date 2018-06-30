@@ -1,0 +1,38 @@
+### 将数组所有元素拼接成查询字符串（数组形如: [['a', 1], ['b', 2]]）
+```javascript
+function join2LevelArrIntoQueryString (arr) {
+	var queryString = '';
+	arr.forEach(function(item, index){
+		var tempStr = item.join('=');
+		queryString += (index === 0) ? tempStr : ('&' + tempStr);
+	});
+	
+	return queryString;
+}
+eg:
+var arr = [
+	['a', 1],
+	['b', 2],
+	['c', 3]
+];
+join2LevelArrIntoQueryString(arr); // "a=1&b=2&c=3"
+```
+
+### 将数组所有元素拼接成查询字符串（数组形如: [{k: 'a', v: 1}, {k: 'b', v: 2}]）
+```javascript
+function joinkvArrIntoQueryString (arr) {
+	var queryString = '';
+	arr.forEach(function(item, index){
+		var tempStr = item.k + '=' + item.v;
+		queryString += (index === 0) ? tempStr : ('&' + tempStr);
+	});
+	return queryString;
+}
+eg:
+var arr = [
+    {k: 'a', v: 1},
+    {k: 'b', v: 2},
+    {k: 'c', v: 3}
+];
+joinkvArrIntoQueryString(arr); // "a=1&b=2&c=3
+```
